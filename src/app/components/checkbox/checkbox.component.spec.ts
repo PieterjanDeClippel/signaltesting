@@ -1,13 +1,17 @@
 import { Component } from "@angular/core";
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { MockDirective } from 'ng-mocks';
 import { BsCheckboxComponent } from "./checkbox.component";
+import { BsCheckboxGroupDirective } from '../checkbox-group/checkbox-group.directive';
 
 @Component({
     selector: 'demo-checkbox-test',
     template: `
-        <bs-checkbox>
-            This is a checkbox
-        </bs-checkbox>`
+        <div bsCheckboxGroup>
+            <bs-checkbox>
+                This is a checkbox
+            </bs-checkbox>
+        </div>`
 })
 class BsCheckboxTestComponent { }
 
@@ -25,6 +29,7 @@ describe('BsCheckboxComponent', () => {
                 BsCheckboxComponent,
 
                 // Mock dependencies
+                MockDirective(BsCheckboxGroupDirective),
 
                 // Testbench
                 BsCheckboxTestComponent,
